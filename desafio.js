@@ -34,29 +34,32 @@ function comprar(arrayDeCompras) {
         valorTotal += item.valor
         if (item.valor >= 200.0) {
             let desconto1 = item.valor * 0.5
-            valorFinal += item.valor - desconto1
-            descontoTotal += desconto1 /// se não rodar colocar o parenteses//
+            valorFinal += (item.valor - desconto1)
+            descontoTotal += (desconto1)
         } else if (item.valor >= 100.0) {
             let desconto2 = item.valor * 0.2
-            valorFinal += item.valor - desconto2 descontoTotal += desconto2
+            valorFinal += (item.valor - desconto2)
+            descontoTotal += (desconto2)
         } else if (item.valor >= 80.0) {
             let desconto3 = item.valor * 0.1
             valorFinal += item.valor - desconto3
             descontoTotal += desconto3
         } else if (item.valor >= 50.0) {
             let desconto4 = item.valor * 0.05
-            valorFinal += item.valor - desconto4 descontoTotal += desconto4
+            valorFinal += (item.valor - desconto4)
+            descontoTotal += (desconto4)
         } else {
             valorFinal += item.valor
         }
     }
-    let DataCompra = new Date():
-        console.log(dataDaCompra)
+    let dataCompra = new Date()
+    console.log(dataCompra)
+
     let cupomFiscal = {
-        "Valor Total sem o desconto": `R$ ${ valorTotal.toFixed(2) replace ('.',',')}`,
-        "Valor do Desconto Total": `R$ ${ descontoTotal.toFixed(2)}`,
-        "Valor Total com o desconto": `R$ ${ valorFinal.toFixed(2)}`,
-        "Data da Compra": dataDaCompra.toLocaleDateString('pt-BR', {
+        "Valor Total sem o desconto": `R$${ valorTotal.toFixed(2).replace('.',',')}`,
+        "Valor do Desconto Total": `R$${ descontoTotal.toFixed(2).replace('.',',')}`,
+        "Valor Total com o desconto": `R$${ valorFinal.toFixed(2).replace('.',',')}`,
+        "Data da Compra": dataCompra.toLocaleDateString('pt-BR', {
             hour: 'numeric',
             minute: 'numeric',
             second: 'numeric'
@@ -67,14 +70,14 @@ function comprar(arrayDeCompras) {
             ...cupomFiscal,
             "Bônus": 'Você ganhou um voucher de R$50,00, para utilizar na sua próxima compra. '
         })
-        else {
-            return console.table(cupomFiscal)
-        }
+    } else {
+        return console.table(cupomFiscal)
     }
 }
+
 comprar(clienteLilit)
 comprar(clienteJuliana)
-comprar(clienteJuliana)
+comprar(clienteMaria)
 
 
 
